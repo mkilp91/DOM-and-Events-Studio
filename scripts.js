@@ -12,7 +12,6 @@ window.addEventListener("load", function() {
     takeoffButton.addEventListener("click", function(){
         let liftoffConfirm = window.confirm("Confirm that the shuttle is ready for takeoff.");
         if (liftoffConfirm){
-            // console.log("you clicked");
             flightStatus.innerHTML = "Shuttle in flight."
             shuttleBackground.style.backgroundColor = "blue";
             altitude.innerHTML = Number(10000);
@@ -20,15 +19,21 @@ window.addEventListener("load", function() {
         }
         
     })
+    
     landingButton.addEventListener("click", function() {
         let landingAlert = window.alert("Landing gear engaged");
         flightStatus.innerHTML = "The shuttle has landed.";
         shuttleBackground.style.backgroundColor = "green";
         altitude.innerHTML = Number(0);
-
-    })
+    });
     
-
+    abortButton.addEventListener("click", function () {
+        // console.log("you clicked");
+        let abortConfirm = window.confirm("Confirm that you want to abort the mission:");
+        if (abortConfirm) {
+            flightStatus.innerHTML = "Mission aborted."
+        }
+    })
 
 
 });
