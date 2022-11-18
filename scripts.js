@@ -21,7 +21,8 @@ window.addEventListener("load", function() {
         
     })
     landingButton.addEventListener("click", function() {
-        let landingAlert = window.alert("Landing gear engaged")
+        let landingAlert = window.alert("Landing gear engaged");
+        flightStatus.innerHTML = "The shuttle has landed.";
 
     })
     
