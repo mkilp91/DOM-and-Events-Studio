@@ -5,18 +5,26 @@ window.addEventListener("load", function() {
     const takeoffButton = document.getElementById("takeoff");
     const landingButton = document.getElementById("landing");
     const abortButton = document.getElementById("missionAbort");
-    const flightStatus=document.getElementById("flightStatus");
+    const flightStatus = document.getElementById("flightStatus");
     const shuttleBackground = document.getElementById("shuttleBackground");
-    
+    const altitude = document.getElementById("spaceShuttleHeight");
+
     takeoffButton.addEventListener("click", function(){
         let liftoffConfirm = window.confirm("Confirm that the shuttle is ready for takeoff.");
-        if (liftoffConfirm == true){
-            flightStatus.innerHTMl += "Shuttle in flight."
+        if (liftoffConfirm){
+            // console.log("you clicked");
+            flightStatus.innerHTML = "Shuttle in flight."
             shuttleBackground.style.backgroundColor = "blue";
-
+            altitude.innerHTML = Number(10000);
+            // console.log(altitude.innerHTML+1);
         }
+        
     })
+    landingButton.addEventListener("click", function() {
+        let landingAlert = window.alert("Landing gear engaged")
 
+    })
+    
 
 
 
