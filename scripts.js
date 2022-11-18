@@ -23,6 +23,8 @@ window.addEventListener("load", function() {
     landingButton.addEventListener("click", function() {
         let landingAlert = window.alert("Landing gear engaged");
         flightStatus.innerHTML = "The shuttle has landed.";
+        shuttleBackground.style.backgroundColor = "green";
+        altitude.innerHTML = Number(0);
 
     })
     
