@@ -6,11 +6,14 @@ window.addEventListener("load", function() {
     const landingButton = document.getElementById("landing");
     const abortButton = document.getElementById("missionAbort");
     const flightStatus=document.getElementById("flightStatus");
+    const shuttleBackground = document.getElementById("shuttleBackground");
     
     takeoffButton.addEventListener("click", function(){
         let liftoffConfirm = window.confirm("Confirm that the shuttle is ready for takeoff.");
         if (liftoffConfirm == true){
             flightStatus.innerHTMl += "Shuttle in flight."
+            shuttleBackground.style.backgroundColor = "blue";
+
         }
     })
 
