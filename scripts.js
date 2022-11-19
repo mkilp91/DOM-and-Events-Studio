@@ -14,16 +14,21 @@ window.addEventListener("load", function() {
     const leftButton = document.getElementById("left");
     const rightButton = document.getElementById("right");
     const rocket = document.getElementById("rocket");
-
+    let upVal = parseInt(Number(rocket.style.marginBottom));
+    let altitudeNum = Number(altitude.innerHTML);
+    let horVal = parseInt(Number(rocket.style.marginLeft));
+    
     takeoffButton.addEventListener("click", function(){
         let liftoffConfirm = window.confirm("Confirm that the shuttle is ready for takeoff.");
         if (liftoffConfirm){
             flightStatus.innerHTML = "Shuttle in flight."
             shuttleBackground.style.backgroundColor = "blue";
-            altitude.innerHTML = Number(10000);
-            // console.log(altitude.innerHTML+1);
+            // altitude.innerHTML = Number(10000);
+            altitudeNum = altitudeNum += 10000;
+            altitude.innerHTML = altitudeNum;
+            upVal = upVal += 10;
+            rocket.style.marginBottom = upVal + "px";
         }
-        
     })
     
     landingButton.addEventListener("click", function() {
@@ -42,14 +47,10 @@ window.addEventListener("load", function() {
         }
     })
     
-    let upVal = parseInt(Number(rocket.style.marginBottom));
-    let altitudeNum = Number(altitude.innerHTML);
-    
     upButton.addEventListener("click", function () {
         upVal = upVal += 10;
         rocket.style.marginBottom = upVal + "px";
         altitudeNum = altitudeNum += 10000;
-        // console.log(altitudeNum); 
         altitude.innerHTML = altitudeNum;
     })
    
@@ -57,28 +58,18 @@ window.addEventListener("load", function() {
         upVal = upVal -= 10;
         rocket.style.marginBottom = upVal + "px";
         altitudeNum = altitudeNum -= 10000;
-        // console.log(altitudeNum); 
         altitude.innerHTML = altitudeNum;
     })
     
-    let horVal = parseInt(Number(rocket.style.marginLeft));
 
     leftButton.addEventListener("click", function () {
         horVal = horVal -= 10;
         rocket.style.marginLeft = horVal + "px";
-        // console.log(horVal);
-        // altitudeNum = altitudeNum -= 10000;
-        // console.log(altitudeNum); 
-        // altitude.innerHTML = altitudeNum;
     })
 
     rightButton.addEventListener("click", function () {
         horVal = horVal += 10;
         rocket.style.marginLeft = horVal + "px";
-        // console.log(horVal);
-        // altitudeNum = altitudeNum -= 10000;
-        // console.log(altitudeNum); 
-        // altitude.innerHTML = altitudeNum;
     })
 
 });
