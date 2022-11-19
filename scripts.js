@@ -46,6 +46,8 @@ window.addEventListener("load", function() {
             flightStatus.innerHTML = "Mission aborted."
             shuttleBackground.style.backgroundColor = "green";
             altitude.innerHTML = Number(0);
+            upVal = 0;
+            rocket.style.marginBottom = upVal + "px";
         }
     })
     
