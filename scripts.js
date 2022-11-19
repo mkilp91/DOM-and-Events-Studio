@@ -75,10 +75,11 @@ window.addEventListener("load", function() {
     downButton.addEventListener("click", function () {
         // console.log("margin bottom = " + rocket.style.marginBottom);
         // console.log("upVal = " + rocket.style.marginBottom);
-        if (parseInt(rocket.style.marginBottom) >= 10 && parseInt(upVal) >= 10) {
+        if (parseInt(rocket.style.marginBottom) >= 10 && upVal > 0) {
             upVal = upVal -= 10;
             rocket.style.marginBottom = upVal + "px";
             console.log("upVal in = " + upVal);
+            console.log("rsb = " + parseInt(rocket.style.marginBottom));
             altitudeNum = altitudeNum -= 10000;
             altitude.innerHTML = altitudeNum;
         } else if (upVal === 0) {
