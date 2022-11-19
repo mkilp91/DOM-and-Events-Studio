@@ -8,6 +8,11 @@ window.addEventListener("load", function() {
     const flightStatus = document.getElementById("flightStatus");
     const shuttleBackground = document.getElementById("shuttleBackground");
     const altitude = document.getElementById("spaceShuttleHeight");
+    
+    const upButton = document.getElementById("up");
+    const downButton = document.getElementById("down");
+    const leftButton = document.getElementById("left");
+    const rightButton = document.getElementById("right");
 
     takeoffButton.addEventListener("click", function(){
         let liftoffConfirm = window.confirm("Confirm that the shuttle is ready for takeoff.");
@@ -37,5 +42,8 @@ window.addEventListener("load", function() {
         }
     })
 
+    upButton.addEventListener("click", function () {
+        console.log("you clicked.")
+    })
 
 });
