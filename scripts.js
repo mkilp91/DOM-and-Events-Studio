@@ -25,7 +25,7 @@ window.addEventListener("load", function() {
         if (liftoffConfirm){
             flightStatus.innerHTML = "Shuttle in flight."
             shuttleBackground.style.backgroundColor = "blue";
-            // altitude.innerHTML = Number(10000);
+            altitude.innerHTML = Number(10000);
             altitudeNum = altitudeNum += 10000;
             altitude.innerHTML = altitudeNum;
             upVal = upVal += 10;
@@ -42,6 +42,8 @@ window.addEventListener("load", function() {
         rocket.style.marginBottom = null;
         rocket.style.left = horPerc + "%";
         rocket.style.bottom = upPerc + "%";
+        upVal = 0;
+        altitudeNum = 0;
     });
     
     abortButton.addEventListener("click", function () {
@@ -56,22 +58,38 @@ window.addEventListener("load", function() {
             rocket.style.marginBottom = null;
             rocket.style.left = horPerc + "%";
             rocket.style.bottom = upPerc + "%";
+            upVal = 0;
+            altitudeNum = 0;
         }
     })
     
     upButton.addEventListener("click", function () {
-        upVal = upVal += 10;
-        rocket.style.marginBottom = upVal + "px";
-        altitudeNum = altitudeNum += 10000;
-        altitude.innerHTML = altitudeNum;
+        
+            upVal = upVal += 10;
+            rocket.style.marginBottom = upVal + "px";
+            altitudeNum = altitudeNum += 10000;
+            altitude.innerHTML = altitudeNum;
+            console.log("upVal = " + upVal);
     })
    
     downButton.addEventListener("click", function () {
-        upVal = upVal -= 10;
-        rocket.style.marginBottom = upVal + "px";
-        altitudeNum = altitudeNum -= 10000;
-        altitude.innerHTML = altitudeNum;
-    })
+        // console.log("margin bottom = " + rocket.style.marginBottom);
+        // console.log("upVal = " + rocket.style.marginBottom);
+        if (parseInt(rocket.style.marginBottom) >= 10 && parseInt(upVal) >= 10) {
+            upVal = upVal -= 10;
+            rocket.style.marginBottom = upVal + "px";
+            console.log("upVal in = " + upVal);
+            altitudeNum = altitudeNum -= 10000;
+            altitude.innerHTML = altitudeNum;
+        } else if (upVal === 0) {
+            console.log("upVal acutally equals 0");
+            rocket.style.bottom = 0 + 'px';
+// ;            upVal = 0;
+//             rocket.style.marginBottom = 0 + "px";
+            // altitudeNum = 0;
+            // altitude.innerHTML = altitudeNum;
+        }
+    });
     
 
     leftButton.addEventListener("click", function () {
