@@ -44,17 +44,21 @@ window.addEventListener("load", function() {
     
     let upVal = parseInt(Number(rocket.style.marginBottom));
     let altitudeNum = Number(altitude.innerHTML);
+    
     upButton.addEventListener("click", function () {
-        // console.log(parseInt(10, "px"));
-        // console.log
-        // rocket.style.marginBottom = rocket.style.marginBottom += 50+"px";
         upVal = upVal += 10;
         rocket.style.marginBottom = upVal + "px";
         altitudeNum = altitudeNum += 10000;
-        // += parseInt(10, "px");
         console.log(altitudeNum); 
         altitude.innerHTML = altitudeNum;
-
+    })
+   
+    downButton.addEventListener("click", function () {
+        upVal = upVal -= 10;
+        rocket.style.marginBottom = upVal + "px";
+        altitudeNum = altitudeNum -= 10000;
+        console.log(altitudeNum); 
+        altitude.innerHTML = altitudeNum;
     })
 
 });
