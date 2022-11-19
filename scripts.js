@@ -7,7 +7,7 @@ window.addEventListener("load", function() {
     const abortButton = document.getElementById("missionAbort");
     const flightStatus = document.getElementById("flightStatus");
     const shuttleBackground = document.getElementById("shuttleBackground");
-    const altitude = document.getElementById("spaceShuttleHeight");
+    let altitude = document.getElementById("spaceShuttleHeight");
     
     const upButton = document.getElementById("up");
     const downButton = document.getElementById("down");
@@ -43,14 +43,17 @@ window.addEventListener("load", function() {
     })
     
     let upVal = parseInt(Number(rocket.style.marginBottom));
+    let altitudeNum = Number(altitude.innerHTML);
     upButton.addEventListener("click", function () {
         // console.log(parseInt(10, "px"));
         // console.log
         // rocket.style.marginBottom = rocket.style.marginBottom += 50+"px";
         upVal = upVal += 10;
         rocket.style.marginBottom = upVal + "px";
-        console.log(rocket.style.marginBottom); 
+        altitudeNum = altitudeNum += 10000;
         // += parseInt(10, "px");
+        console.log(altitudeNum); 
+        altitude.innerHTML = altitudeNum;
 
     })
 
