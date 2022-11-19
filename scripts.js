@@ -17,6 +17,8 @@ window.addEventListener("load", function() {
     let upVal = parseInt(Number(rocket.style.marginBottom));
     let altitudeNum = Number(altitude.innerHTML);
     let horVal = parseInt(Number(rocket.style.marginLeft));
+    let horPerc = 41;
+    let upPerc = 0;
     
     takeoffButton.addEventListener("click", function(){
         let liftoffConfirm = window.confirm("Confirm that the shuttle is ready for takeoff.");
@@ -27,7 +29,7 @@ window.addEventListener("load", function() {
             altitudeNum = altitudeNum += 10000;
             altitude.innerHTML = altitudeNum;
             upVal = upVal += 10;
-            rocket.style.marginBottom = upVal + "px";
+            rocket.style.bottom = upVal + "px";
         }
     })
     
@@ -36,8 +38,16 @@ window.addEventListener("load", function() {
         flightStatus.innerHTML = "The shuttle has landed.";
         shuttleBackground.style.backgroundColor = "green";
         altitude.innerHTML = Number(0);
+        rocket.style.position = "absolute";
         upVal = 0;
-        rocket.style.marginBottom = upVal + "px";
+        rocket.style.ottom = 0 + "px";
+        console.log(upVal);
+        console.log(rocket.style.bottom);
+        horVal = 41;
+        rocket.style.marginLeft = null;
+        rocket.style.marginBottom = null;
+        rocket.style.left = horPerc + "%";
+        rocket.style.bottom = upPerc + "%";
     });
     
     abortButton.addEventListener("click", function () {
