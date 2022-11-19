@@ -38,12 +38,12 @@ window.addEventListener("load", function() {
         flightStatus.innerHTML = "The shuttle has landed.";
         shuttleBackground.style.backgroundColor = "green";
         altitude.innerHTML = Number(0);
-        rocket.style.position = "absolute";
-        upVal = 0;
-        rocket.style.ottom = 0 + "px";
-        console.log(upVal);
-        console.log(rocket.style.bottom);
-        horVal = 41;
+        // rocket.style.position = "absolute";
+        // upVal = 0;
+        // rocket.style.ottom = 0 + "px";
+        // console.log(upVal);
+        // console.log(rocket.style.bottom);
+        // horVal = 41;
         rocket.style.marginLeft = null;
         rocket.style.marginBottom = null;
         rocket.style.left = horPerc + "%";
