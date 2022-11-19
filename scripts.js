@@ -72,4 +72,13 @@ window.addEventListener("load", function() {
         // altitude.innerHTML = altitudeNum;
     })
 
+    rightButton.addEventListener("click", function () {
+        horVal = horVal += 10;
+        rocket.style.marginLeft = horVal + "px";
+        // console.log(horVal);
+        // altitudeNum = altitudeNum -= 10000;
+        // console.log(altitudeNum); 
+        // altitude.innerHTML = altitudeNum;
+    })
+
 });
