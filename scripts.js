@@ -49,7 +49,7 @@ window.addEventListener("load", function() {
         upVal = upVal += 10;
         rocket.style.marginBottom = upVal + "px";
         altitudeNum = altitudeNum += 10000;
-        console.log(altitudeNum); 
+        // console.log(altitudeNum); 
         altitude.innerHTML = altitudeNum;
     })
    
@@ -57,8 +57,19 @@ window.addEventListener("load", function() {
         upVal = upVal -= 10;
         rocket.style.marginBottom = upVal + "px";
         altitudeNum = altitudeNum -= 10000;
-        console.log(altitudeNum); 
+        // console.log(altitudeNum); 
         altitude.innerHTML = altitudeNum;
+    })
+    
+    let horVal = parseInt(Number(rocket.style.marginLeft));
+
+    leftButton.addEventListener("click", function () {
+        horVal = horVal -= 10;
+        rocket.style.marginLeft = horVal + "px";
+        // console.log(horVal);
+        // altitudeNum = altitudeNum -= 10000;
+        // console.log(altitudeNum); 
+        // altitude.innerHTML = altitudeNum;
     })
 
 });
