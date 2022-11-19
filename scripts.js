@@ -13,6 +13,7 @@ window.addEventListener("load", function() {
     const downButton = document.getElementById("down");
     const leftButton = document.getElementById("left");
     const rightButton = document.getElementById("right");
+    const rocket = document.getElementById("rocket");
 
     takeoffButton.addEventListener("click", function(){
         let liftoffConfirm = window.confirm("Confirm that the shuttle is ready for takeoff.");
@@ -33,7 +34,6 @@ window.addEventListener("load", function() {
     });
     
     abortButton.addEventListener("click", function () {
-        // console.log("you clicked");
         let abortConfirm = window.confirm("Confirm that you want to abort the mission:");
         if (abortConfirm) {
             flightStatus.innerHTML = "Mission aborted."
@@ -41,9 +41,17 @@ window.addEventListener("load", function() {
             altitude.innerHTML = Number(0);
         }
     })
-
+    
+    let upVal = parseInt(Number(rocket.style.marginBottom));
     upButton.addEventListener("click", function () {
-        console.log("you clicked.")
+        // console.log(parseInt(10, "px"));
+        // console.log
+        // rocket.style.marginBottom = rocket.style.marginBottom += 50+"px";
+        upVal = upVal += 10;
+        rocket.style.marginBottom = upVal + "px";
+        console.log(rocket.style.marginBottom); 
+        // += parseInt(10, "px");
+
     })
 
 });
