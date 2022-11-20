@@ -18,18 +18,25 @@ window.addEventListener("load", function() {
     let altitudeNum = Number(altitude.innerHTML);
     let horVal = parseInt(Number(rocket.style.marginLeft));
     let horPerc = 41;
-    let upPerc = 0;
+    // let upPerc = shuttleBackground.style.top;
+    // upPerc = 100 + "%";
     
     takeoffButton.addEventListener("click", function(){
         let liftoffConfirm = window.confirm("Confirm that the shuttle is ready for takeoff.");
+        let backgroundColor = document.getElementById("shuttleBackground").style.backgroundColor;
         if (liftoffConfirm){
-            flightStatus.innerHTML = "Shuttle in flight."
-            shuttleBackground.style.backgroundColor = "blue";
-            altitude.innerHTML = Number(10000);
-            altitudeNum = altitudeNum += 10000;
-            altitude.innerHTML = altitudeNum;
-            upVal = upVal += 10;
-            rocket.style.bottom = upVal + "px";
+            if (backgroundColor = "green") {
+                flightStatus.innerHTML = "Shuttle in flight."
+                shuttleBackground.style.backgroundColor = "blue";
+                altitude.innerHTML = Number(10000);
+                altitudeNum = altitudeNum += 10000;
+                altitude.innerHTML = altitudeNum;
+                upVal = upVal += 10;
+                rocket.style.bottom = upVal + "px";
+                console.log(backgroundColor);
+             } else if (backgroundColor = "blue") {
+                window.alert("The rocket is already airborn.");
+            }
         }
     })
     
@@ -40,10 +47,11 @@ window.addEventListener("load", function() {
         altitude.innerHTML = Number(0);
         rocket.style.marginLeft = null;
         rocket.style.marginBottom = null;
-        rocket.style.left = horPerc + "%";
-        rocket.style.bottom = upPerc + "%";
         upVal = 0;
+        rocket.style.left = horPerc + "%";
+        rocket.style.bottom = upVal + "px";
         altitudeNum = 0;
+
     });
     
     abortButton.addEventListener("click", function () {
@@ -57,19 +65,29 @@ window.addEventListener("load", function() {
             rocket.style.marginLeft = null;
             rocket.style.marginBottom = null;
             rocket.style.left = horPerc + "%";
-            rocket.style.bottom = upPerc + "%";
             upVal = 0;
+            rocket.style.bottom = upVal + "px";
             altitudeNum = 0;
         }
     })
     
     upButton.addEventListener("click", function () {
-        
+        // window.setTimeout(10);
+        if (upVal < 240) {
             upVal = upVal += 10;
             rocket.style.marginBottom = upVal + "px";
             altitudeNum = altitudeNum += 10000;
             altitude.innerHTML = altitudeNum;
             console.log("upVal = " + upVal);
+            // console.log("upPerc = " + upPerc);
+        } else {
+            upVal = 240;
+            rocket.style.marginBottom = upVal + "px";
+            // altitudeNum = altitudeNum;
+            // altitude.innerHTML = altitudeNum;
+            console.log("upVal else = " + upVal);
+        }
+            
     })
    
     downButton.addEventListener("click", function () {
@@ -78,8 +96,8 @@ window.addEventListener("load", function() {
         if (parseInt(rocket.style.marginBottom) >= 10 && upVal > 0) {
             upVal = upVal -= 10;
             rocket.style.marginBottom = upVal + "px";
-            console.log("upVal in = " + upVal);
-            console.log("rsb = " + parseInt(rocket.style.marginBottom));
+            // console.log("upVal in = " + upVal);
+            // console.log("rsb = " + parseInt(rocket.style.marginBottom));
             altitudeNum = altitudeNum -= 10000;
             altitude.innerHTML = altitudeNum;
         } else if (upVal === 0) {
